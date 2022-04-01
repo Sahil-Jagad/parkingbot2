@@ -32,20 +32,23 @@ def bot(values):
     option = webdriver.ChromeOptions()
     driver= webdriver.Chrome('/usr/local/bin/chromedriver',options = option)  
 
+    driver.get("https://accounts.google.com/Login?continue=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSfS4YITfKS0UVVTUjO13E6rqPr4b744szTCZooaUH533vMISg%2Fviewform%3Ffbzx%3D-785423508921260424")
+
+    gmail = driver.find_elements_by_class_name("whsOnd.zHQkBf")
+    gmailSubmit = driver.find_elements_by_class_name("VfPpkd-vQzf8d")
+    gmail[0].send_keys("mbprata19@damien-hs.edu")
+    gmailSubmit[0].click()
+    time.sleep(2)
+
+    password = driver.find_elements_by_class_name("whsOnd.zHQkBf")
+    passwordSubmit = driver.find_elements_by_class_name("VfPpkd-vQzf8d")
+    password[0].send_keys("1FMlw1377")
+    passwordSubmit[0].click()
+    time.sleep(2)
+
     for name in values:
+
         driver.get("https://accounts.google.com/Login?continue=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSfS4YITfKS0UVVTUjO13E6rqPr4b744szTCZooaUH533vMISg%2Fviewform%3Ffbzx%3D-785423508921260424")
-
-        gmail = driver.find_elements_by_class_name("whsOnd.zHQkBf")
-        gmailSubmit = driver.find_elements_by_class_name("VfPpkd-vQzf8d")
-        gmail[0].send_keys("mbprata19@damien-hs.edu")
-        gmailSubmit[0].click()
-        time.sleep(2)
-
-        password = driver.find_elements_by_class_name("whsOnd.zHQkBf")
-        passwordSubmit = driver.find_elements_by_class_name("VfPpkd-vQzf8d")
-        password[0].send_keys("1FMlw1377")
-        passwordSubmit[0].click()
-        time.sleep(2)
 
         textboxes = driver.find_elements_by_class_name("whsOnd.zHQkBf")
         CommunityButton = driver.find_element_by_class_name("e2CuFe.eU809d")
@@ -61,22 +64,15 @@ def bot(values):
         textboxes[4].send_keys(name_cars[name][2]) #color
         textboxes[5].send_keys(name_cars[name][3]) #plate
         current_time = datetime.now()
-
-        if current_time.month < 10:
-            current_time.month = f"0{current_time.month}"
-
-        if current_time.day < 10:
-            current_time = f"0{current_time.day}"
-
-        date = f"0{current_time.month}-{current_time.day}-{current_time.year}"
-        textboxes[6].send_keys(date) #date
+        formatted_date = current_time.strftime("%m/%d/%Y")
+        textboxes[6].send_keys(formatted_date) #date
 
         CommunityButton.click()
         time.sleep(1)
         for i in range(4):
             pyautogui.press('down')
         pyautogui.press('enter')
-
+        time.sleep(15)
         submit.click()
 
 
