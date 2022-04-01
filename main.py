@@ -49,6 +49,7 @@ def bot(values):
 
         textboxes = driver.find_elements_by_class_name("whsOnd.zHQkBf")
         CommunityButton = driver.find_element_by_class_name("e2CuFe.eU809d")
+        submit = driver.find_element_by_class_name('NPEfkd.RveJvd.snByac')
 
         time.sleep(2)
 
@@ -60,6 +61,13 @@ def bot(values):
         textboxes[4].send_keys(name_cars[name][2]) #color
         textboxes[5].send_keys(name_cars[name][3]) #plate
         current_time = datetime.now()
+
+        if current_time.month < 10:
+            current_time.month = f"0{current_time.month}"
+
+        if current_time.day < 10:
+            current_time = f"0{current_time.day}"
+
         date = f"0{current_time.month}-{current_time.day}-{current_time.year}"
         textboxes[6].send_keys(date) #date
 
@@ -69,7 +77,10 @@ def bot(values):
             pyautogui.press('down')
         pyautogui.press('enter')
 
-    # driver.close()
+        submit.click()
+
+
+    driver.close()
 
 #initialise app
 app = Flask(__name__)
