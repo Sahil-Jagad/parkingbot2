@@ -14,7 +14,8 @@ def bot(values):
     "Tim": ["Honda", "CRV", "White", "7ECE482"],
     "Grace": ["Volkswagen", "Jetta", "Grey", "6ZIN828"],
     "Nica": ["Mazda", "3", "White", "8XSU346"],
-    "Palak": ["Toyota", "Prius", "Dark Grey", ""]
+    "Palak": ["Toyota", "Prius", "Dark Grey", ""],
+    "Adrian": ["Hyundai", "Elantra", "Silver", "7BLT620"]
     }
 
     name_apartment = {
