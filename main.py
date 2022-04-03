@@ -73,7 +73,7 @@ def bot(values):
         for i in range(4):
             pyautogui.press('down')
         pyautogui.press('enter')
-        time.sleep(15)
+        time.sleep(3)
         submit.click()
 
 
