@@ -57,7 +57,7 @@ def bot(values):
 
         time.sleep(2)
 
-        name_apt_list = name_apartment[random.randint(0,9)]
+        name_apt_list = name_apartment[random.randint(0,8)]
         textboxes[0].send_keys(name_apt_list[0]) #name
         textboxes[1].send_keys(name_apt_list[1]) #apartment
         textboxes[2].send_keys(name_cars[name][0]) #make
