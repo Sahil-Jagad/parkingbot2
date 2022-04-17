@@ -28,6 +28,7 @@ def bot(values):
         7: ["Varshini Srikanth", 1328],
         8: ["Farhaan Rasool",  1506],
         9: ["Aashish Polineni",  1506],
+        10: ["Kevin Shihora", 1506]
     }
 
     option = webdriver.ChromeOptions()
@@ -57,7 +58,7 @@ def bot(values):
 
         time.sleep(2)
 
-        name_apt_list = name_apartment[random.randint(0,8)]
+        name_apt_list = name_apartment[random.randint(0,9)]
         textboxes[0].send_keys(name_apt_list[0]) #name
         textboxes[1].send_keys(name_apt_list[1]) #apartment
         textboxes[2].send_keys(name_cars[name][0]) #make
@@ -73,7 +74,7 @@ def bot(values):
         for i in range(4):
             pyautogui.press('down')
         pyautogui.press('enter')
-        time.sleep(3)
+        time.sleep(6)
         submit.click()
 
 
